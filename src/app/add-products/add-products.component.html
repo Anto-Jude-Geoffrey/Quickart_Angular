@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Enter Product Details</h1>
+    <form (ngSubmit)="addProducts()">
+        <label for="product-id">Product Id:</label>
+        <input #Productid="ngModel" [(ngModel)]="this.product.productId" (change)="searchLastProduct()" type="text" id="product-id" name="product-id" required>
+        <p *ngIf="(Productid.value != availableId) && (Productid.dirty)">Available Product ID = {{availableId}}</p>
+
+        <label for="product-name">Product Name:</label>
+        <input [(ngModel)]="this.product.productName" type="text" id="product-name" name="product-name" required>
+
+        <label for="category-id">Category:</label>
+        <select #CategoryID (change)="categoryAssign(CategoryID.value)" class="form-control">
+            <option value="0">All Categories</option>
+            <option *ngFor="let category of categories" value={{category.categoryId}}>
+                {{category.categoryName}}
+            </option>
+        </select>
+
+        <label for="price">Price:</label>
+        <input [(ngModel)]="this.product.price" type="number" id="price" name="price" step="0.01" required>
+
+        <label for="quantity">Quantity Available:</label>
+        <input [(ngModel)]="this.product.quantityAvailable" type="number" id="quantity" name="quantity" required>
+
+        <button type="submit">Submit</button>
+    </form>
+    <div>{{msg}}</div>
+</div>

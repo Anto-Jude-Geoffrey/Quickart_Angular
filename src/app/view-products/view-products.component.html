@@ -1,0 +1,53 @@
+<div style="text-align:center">
+    <h1 class="display-4">View Products</h1>
+    <br />
+    <div class="row">       
+        <div class="col-md-8" style="text-align:center">
+        <input type="text" placeholder="Search..." #ProductId class="form-control" [(ngModel)]="search" (change)="getProductDetails(ProductId.value)">
+        </div>
+        <div class="col-md-2" style="text-align:right">
+            <label>Filter Products:</label>
+        </div>
+        <div class="col-md-2">
+            <select class="form-control" #categorydrop (change)="searchProductByCategory(categorydrop.value)">
+                <option value="0">All Categories</option>
+                <option *ngFor="let category of categories" value={{category.categoryId}}>
+                    {{category.categoryName}}
+                </option>
+            </select>
+        </div>        
+    </div>
+    <div class="col-md-8" *ngIf="search">Searching for: {{search}}</div>
+    <br />
+    <div class="table-responsive">
+        <table class="table table-dark table-striped" *ngIf="filteredProducts && filteredProducts.length">
+            <thead>
+            <tr>
+                <th>Product Id</th>
+                <th>Product Name</th>
+                <th>Category Id</th>
+                <th>Price</th>
+                <th>Quantity Available</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let filteredProduct of filteredProducts" style="background-color:white">
+                <td>{{filteredProduct.productId}}</td>
+                <td>{{filteredProduct.productName}}</td>
+                <td>{{filteredProduct.categoryId}}</td>
+                <td>{{filteredProduct.price | currency:'INR'}}</td>
+                <td>{{filteredProduct.quantityAvailable}}</td>
+                <td>
+                    <button (click)="updateBuyProducts(filteredProduct)" title="Buy" class="btn" ><img class="img-fluid" [src]="imgBuy"></button>
+                    <button (click)="updateSellProducts(filteredProduct)" title="Sell" class="btn" ><img class="img-fluid" [src]="imgSell"></button>
+                    <button (click)="deleteProduct(filteredProduct.productId)" title="Delete" class="btn" ><i class="fa fa-trash" style="color: red;" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="showMsgDiv">
+        <h4 class="bg-light p-5" style="text-align:center;">No products available</h4>
+    </div>
+</div>

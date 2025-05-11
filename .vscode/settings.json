@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/784e9010-f533-4a1d-b56d-d10ba63501a0/resourceGroups/app-quickart-eastus-dev-001/providers/Microsoft.Web/sites/AntoJude-QuickKartDB",
+    "appService.deploySubpath": "dist\\quick-kart-app\\browser"
+}
