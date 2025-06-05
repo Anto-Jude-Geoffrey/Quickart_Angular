@@ -30,7 +30,7 @@ export class LoginComponent {
           localStorage.setItem("token",data.token)
           this.msg="Token Generated Successfully";
       },
-      error: errorMsg => {console.log(errorMsg); this.msg=`Error: ${errorMsg}`;this.loading = false;},
+      error: errorMsg => {console.log(errorMsg); this.msg=`Kindly Login again...`;this.loading = false;},
       complete:()=> {this.loading = false;this.router.navigateByUrl('/Home');}
   })
 }
