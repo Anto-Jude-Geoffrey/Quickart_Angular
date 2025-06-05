@@ -1,35 +1,36 @@
-
 <div class="welcome-container">
-    <div class="hero-section">
-      <div class="hero-overlay">
-        <h1 class="hero-title">Welcome to Our QuickKart App</h1>
-        <p class="hero-subtitle">A world of possibilities awaits you</p>
-        <div class="cta-buttons">
-          <a routerLink="/about" class="btn btn-primary">Learn More</a>
-          <a routerLink="/signup" class="btn btn-secondary">Get Started</a>
-        </div>
+  <div class="hero-section">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Welcome to QuickKart</h1>
+      <p class="hero-subtitle">Your one-stop solution for seamless online shopping</p>
+      <div class="cta-buttons">
+        <a routerLink="/about" class="btn btn-primary" aria-label="Learn more about QuickKart" routerLink="/AboutUs">Learn More</a>
+        <a routerLink="/signup" class="btn btn-secondary" aria-label="Sign up for QuickKart" routerLink="/Register">Register New User</a>
       </div>
     </div>
-  
-    <section class="features">
-      <h2>Why Choose Us?</h2>
-      <div class="features-container">
-        <div class="feature-item">
-          <i class="fas fa-bolt"></i>
-          <h3>Fast & Secure</h3>
-          <p>Experience blazing fast speed and top-notch security.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-heart"></i>
-          <h3>User Friendly</h3>
-          <p>Our platform is designed with ease of use in mind.</p>
-        </div>
-        <div class="feature-item">
-          <i class="fas fa-cogs"></i>
-          <h3>Customizable</h3>
-          <p>Tailor the experience to your preferences.</p>
-        </div>
-      </div>
-    </section>
   </div>
-  
+
+  <section class="features" aria-label="Key benefits of QuickKart">
+    <h2 class="features-heading">Why Choose QuickKart?</h2>
+    <div class="features-container">
+      <div class="feature-item" tabindex="0">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <h3>Fast & Secure</h3>
+        <p>Shop confidently with blazing fast speed and industry-grade security.</p>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <i class="fas fa-heart" aria-hidden="true"></i>
+        <h3>User-Friendly</h3>
+        <p>Enjoy an intuitive and simple shopping experience tailored just for you.</p>
+      </div>
+      <div class="feature-item" tabindex="0">
+        <i class="fas fa-cogs" aria-hidden="true"></i>
+        <h3>Customizable</h3>
+        <p>Personalize your preferences to make QuickKart truly your own.</p>
+      </div>
+    </div>
+  </section>
+</div>
+<footer class="developer-footer">
+  <p>© {{ currentYear }} QuickKart | Developed with ❤️ by <strong>Anto Jude Geoffrey</strong></p>
+</footer>

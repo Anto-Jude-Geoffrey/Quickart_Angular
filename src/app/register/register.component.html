@@ -1,0 +1,83 @@
+<div class="register-container">
+  <h2>Create Your Account</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)" novalidate>
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="EmailId"
+      [(ngModel)]="user.EmailId"
+      required
+      email
+      #email="ngModel"
+      placeholder="Enter your email" />
+    <div *ngIf="email.invalid && email.touched" class="error">
+      Please enter a valid email.
+    </div>
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="UserPassword"
+      [(ngModel)]="user.UserPassword"
+      required
+      minlength="6"
+      #password="ngModel"
+      placeholder="Minimum 6 characters" />
+    <div *ngIf="password.invalid && password.touched" class="error">
+      Password must be at least 6 characters.
+    </div>
+
+    <label for="role">Role</label>
+    <select id="role" name="RoleId" [(ngModel)]="user.RoleId" required #role="ngModel">
+      <option value="" disabled selected>Select Role</option>
+      <option value="1">Customer</option>
+      <option value="2">Admin</option>
+    </select>
+    <div *ngIf="role.invalid && role.touched" class="error">
+      Please select a role.
+    </div>
+
+    <label>Gender</label>
+    <div class="radio-group">
+      <label><input type="radio" name="Gender" [(ngModel)]="user.Gender" value="M" required /> Male</label>
+      <label><input type="radio" name="Gender" [(ngModel)]="user.Gender" value="F" /> Female</label>
+    </div>
+    <div *ngIf="!user.Gender && registerForm.submitted" class="error">
+      Please select your gender.
+    </div>
+
+    <label for="dob">Date of Birth</label>
+    <input
+      type="date"
+      id="dob"
+      name="DateOfBirth"
+      [(ngModel)]="user.DateOfBirth"
+      required
+      #dob="ngModel" />
+    <div *ngIf="dob.invalid && dob.touched" class="error">
+      Please select your date of birth.
+    </div>
+
+    <label for="address">Address</label>
+    <textarea
+      id="address"
+      name="Address"
+      [(ngModel)]="user.Address"
+      required
+      rows="3"
+      #address="ngModel"
+      placeholder="Enter your address"></textarea>
+    <div *ngIf="address.invalid && address.touched" class="error">
+      Address is required.
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+    <div class="msg">{{ msg }}</div>
+
+  </form>
+</div>

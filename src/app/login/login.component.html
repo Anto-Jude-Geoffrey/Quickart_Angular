@@ -10,6 +10,10 @@
         <input type="password" id="password" [(ngModel)]="user.UserPassword" name="password" ngModel required>
       </div>
       <button type="submit">Login</button>
+      <button type="button" id="guest" (click)="guestCredential()">Guest Credentials</button>
+      <div *ngIf="loading" class="spinner-container">
+        <mat-spinner diameter="40"></mat-spinner>
+      </div>
       <div>{{msg}}</div>
     </form>
   </div>

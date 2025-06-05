@@ -44,6 +44,11 @@ export class ProductService {
     return this.http.post("https://app-quickart-web-eastus-dev-001-ataradd2akhehseu.canadacentral-01.azurewebsites.net/api/Product/AddProducts",product);
   }
 
+  addUsers(user:IUser):Observable<any>
+  {
+    return this.http.post("https://app-quickart-web-eastus-dev-001-ataradd2akhehseu.canadacentral-01.azurewebsites.net/api/Product/AddUsers",user);
+  }
+
   updateProductQuantity(product:IProduct):Observable<any>
   {
     return this.http.put("https://app-quickart-web-eastus-dev-001-ataradd2akhehseu.canadacentral-01.azurewebsites.net/api/Product/UpdateProduct",product);
@@ -53,6 +58,11 @@ export class ProductService {
   {
     let params = new HttpParams().set('ProductId',productId);
     return this.http.delete("https://app-quickart-web-eastus-dev-001-ataradd2akhehseu.canadacentral-01.azurewebsites.net/api/Product/DeleteProduct",{params});
+  }
+
+  deleteUser(emailid:string,password:string):Observable<any>
+  {
+    return this.http.delete(`https://app-quickart-web-eastus-dev-001-ataradd2akhehseu.canadacentral-01.azurewebsites.net/api/Product/DeleteUser?email=${emailid}&password=${password}`,{ responseType: 'text' })
   }
 
   errorHandler (error: HttpErrorResponse)
